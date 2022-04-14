@@ -24,7 +24,7 @@ def home():
 def read_csv(source: Source):
     try:
         if source.type == 'csv':
-            read_excelfile.read(os.path.join("datasets", source.file_name))
+            read_csvfile.read(os.path.join("datasets", source.file_name))
         else:
             raise TypeMismatchError()
     except TypeMismatchError as e:
@@ -37,7 +37,7 @@ def read_csv(source: Source):
 def read_excel(source: Source):
     try:
         if source.type == 'xlsx':
-            read_csvfile.read(os.path.join("datasets", source.file_name))
+            read_excelfile.read(os.path.join("datasets", source.file_name))
         else:
             raise TypeMismatchError()
     except TypeMismatchError as e:
@@ -87,3 +87,5 @@ def read_db(source: Source):
 # Starting point of the app
 if __name__ == '__main__':
     uvicorn.run(app, host='127.0.0.1', port=8000)
+
+# uvicorn main:app --reload
