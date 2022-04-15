@@ -73,7 +73,7 @@ def read_db(source: Source):
 
 # Read pickle file
 @app.post("/read_pickle")
-def read_db(source: Source):
+def read_pickle(source: Source):
     try:
         if source.type == 'pkl':
             read_picklefile.read(os.path.join("datasets", source.file_name))
